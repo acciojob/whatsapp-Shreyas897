@@ -59,22 +59,21 @@ public class WhatsappRepository {
         Group group=new Group();
 
         if(users.size()==2){
-            Group g=new Group(users.get(1).getName(),users.size());
-            adminMap.put(g,users.get(0));
-            groupUserMap.put(g,users);
-            return g;
+            group=new Group(users.get(1).getName(),users.size());
+            adminMap.put(group,users.get(0));
+            groupUserMap.put(group,users);
+
         }
         if(users.size()>2){
             customGroupCount++;
-            Group g=new Group("Group "+customGroupCount,users.size());
-            adminMap.put(g,users.get(0));
+            group=new Group("Group "+customGroupCount,users.size());
+            adminMap.put(group,users.get(0));
 
-            groupUserMap.put(g,users);
-            groupMessageMap.put(g,new ArrayList<Message>());
-            return g;
+            groupUserMap.put(group,users);
+
         }
-
-        return null;
+        groupMessageMap.put(group,new ArrayList<Message>());
+        return group;
     }
     public int createMessage(String content){
         // The 'i^th' created message has message id 'i'.
