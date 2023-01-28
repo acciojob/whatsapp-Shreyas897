@@ -56,16 +56,17 @@ public class WhatsappRepository {
         //If createGroup is called for these userLists in the same order, their group names would be "Group 1", "Evan", and "Group 2" respectively.
 
         Group group=new Group();
-        int i=0;
+
         if(users.size()==2){
             new Group(users.get(1).getName(),users.size());
             adminMap.put(group,users.get(0));
             groupUserMap.put(group,users);
         }
         if(users.size()>2){
-            new Group("Group" +i+1,users.size());
-            adminMap.put(group,users.get(0));
             customGroupCount++;
+            new Group("Group" +customGroupCount,users.size());
+            adminMap.put(group,users.get(0));
+
             groupUserMap.put(group,users);
         }
         groupMessageMap.put(group,new ArrayList<Message>());
