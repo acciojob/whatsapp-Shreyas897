@@ -66,7 +66,7 @@ public class WhatsappRepository {
         }
         if(users.size()>2){
             customGroupCount++;
-            new Group("Group" +customGroupCount,users.size());
+            new Group("Group "+customGroupCount,users.size());
             adminMap.put(group,users.get(0));
 
             groupUserMap.put(group,users);
