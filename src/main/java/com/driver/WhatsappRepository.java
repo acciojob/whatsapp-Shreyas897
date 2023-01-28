@@ -74,7 +74,7 @@ public class WhatsappRepository {
             return g;
         }
 
-        return group;
+        return null;
     }
     public int createMessage(String content){
         // The 'i^th' created message has message id 'i'.
