@@ -143,6 +143,8 @@ public class WhatsappRepository {
                     senderMap.remove(m);
                     msg.remove(m);
                 }
+                if(groupUserMap.get(x).size()==1)
+                    groupUserMap.remove(x);
                 return groupUserMap.get(x).size()+groupMessageMap.get(x).size()+msg.size();
             }
         }
