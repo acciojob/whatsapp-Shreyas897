@@ -54,6 +54,8 @@ public class WhatsappRepository {
 
         //For example: Consider userList1 = {Alex, Bob, Charlie}, userList2 = {Dan, Evan}, userList3 = {Felix, Graham, Hugh}.
         //If createGroup is called for these userLists in the same order, their group names would be "Group 1", "Evan", and "Group 2" respectively.
+        if(users.size()<=1)
+            return null;
 
         Group group=new Group();
 
@@ -131,6 +133,8 @@ public class WhatsappRepository {
                     throw new Exception("Cannot remove admin");
                 }
                 groupUserMap.get(x).remove(user);
+                userMobile.remove(user.getMobile());
+                userData.remove(user.getMobile());
                 List<Message>a=new ArrayList<>(groupMessageMap.get(x));
                 HashSet<Message>hs=new HashSet<>();
                 for(Message m:senderMap.keySet()){
